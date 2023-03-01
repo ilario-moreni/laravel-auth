@@ -60,8 +60,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.posts.index' ? 'bg-secondary' : '' }}"
-                                    href="">{{-- {{route('admin.posts.index') }} --}}
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.projects.index') }}">
                                     <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Posts
                                 </a>
                             </li>
@@ -72,7 +72,7 @@
                     </div>
                 </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-dark bg-gradient">
                     @yield('content')
                 </main>
             </div>
