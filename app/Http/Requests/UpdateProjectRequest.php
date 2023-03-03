@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProjectRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,20 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['required', 'max:50'],
+            'description' => ['required'],
+            'members_num' => ['required'],
+            'budget' => ['required'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Il titolo è obbligatorio',
+            'description.required' => 'La descrizione è obbligatoria',
+            'members_num.required' => 'Il numero di partecipanti è obbligatorio',
+            'budget.required' => 'Il budget è da dichiarare',
         ];
     }
 }
