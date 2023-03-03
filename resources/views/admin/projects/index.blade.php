@@ -9,6 +9,7 @@
                     <th>Projects name</th>
                     <th>Projects members</th>
                     <th>Projects budget</th>
+                    <th>Manage</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,12 +22,21 @@
                             {{-- <a href="{{ route('admin.projects.show', ['project' => $project['title']]) }}"> --}}
                             {{ $project->title }}
                             {{--  </a> --}}
+                            <div class="d-none">
+                                {{ $project->description }}
+
+                            </div>
                         </td>
                         <td>
                             {{ $project->members_num }}
                         </td>
                         <td>
                             {{ $project->budget }}&euro;
+                        </td>
+                        <td>
+                            <a href="{{ route('admin.projects.edit', $project) }}">
+                                <button class='btn btn-success'><i class="fa-solid fa-pen"></i></button>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

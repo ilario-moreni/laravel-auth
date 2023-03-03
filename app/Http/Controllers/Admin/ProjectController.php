@@ -44,7 +44,7 @@ class ProjectController extends Controller
 
         $form_data = $request->all();
 
-        dd($form_data);
+        /* dd($form_data); */
 
         $slug = Project::generateSlug($request->title);
 
@@ -84,7 +84,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**

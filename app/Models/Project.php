@@ -14,7 +14,7 @@ class Project extends Model
 
     use HasFactory;
 
-    public function generateSlug($title){
+    public static function generateSlug($title){
         return Str::slug($title, '-');
     }
 }
