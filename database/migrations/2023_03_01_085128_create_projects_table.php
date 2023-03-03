@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->tinyInteger('members_num');
             $table->integer('budget');
+            $table->string('slug');
             $table->timestamps();
         });
     }

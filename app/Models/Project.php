@@ -4,11 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
 
 class Project extends Model
 {
-    protected $fillable = ['title', 'description', 'members_num', 'budget'];
+    protected $fillable = ['title', 'description', 'members_num', 'budget', 'slug'];
 
 
     use HasFactory;
+
+    public function generateSlug($title){
+        return Str::slug($title, '-');
+    }
 }

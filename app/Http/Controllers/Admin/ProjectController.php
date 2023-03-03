@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Project;
-use App\Http\Requests\Auth\StoreProjectRequest;
-use App\Http\Requests\Auth\UpdateProjectRequest;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -38,7 +41,21 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+
+        $form_data = $request->all();
+
+        dd($form_data);
+
+        $slug = Project::generateSlug($request->title);
+
+        $form_data['slug'] = $slug;
+
+        $newProject = new Project();
+        $newProject->fill($form_data);
+
+        $newProject->save();
+        
+        return redirect()->route('admin.projects.index')->with('message', 'Post creato correttamente');
     }
 
     /**
