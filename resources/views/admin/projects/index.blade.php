@@ -34,6 +34,9 @@
                             {{ $project->budget }}&euro;
                         </td>
                         <td class="d-flex">
+                            <a href="{{ route('admin.projects.show', $project) }}" class="me-3">
+                                <button class='btn btn-primary'><i class="fa-solid fa-info"></i></button>
+                            </a>
                             <a href="{{ route('admin.projects.edit', $project) }}" class="me-3">
                                 <button class='btn btn-success'><i class="fa-solid fa-pen"></i></button>
                             </a>
