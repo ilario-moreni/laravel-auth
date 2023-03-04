@@ -31,4 +31,14 @@ class StoreProjectRequest extends FormRequest
             'budget' => ['required'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Il titolo è obbligatorio',
+            'description.required' => 'La descrizione è obbligatoria',
+            'members_num.required' => 'Il numero di partecipanti è obbligatorio',
+            'budget.required' => 'Il budget è da dichiarare',
+        ];
+    }
 }

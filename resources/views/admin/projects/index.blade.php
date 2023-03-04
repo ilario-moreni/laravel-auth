@@ -33,10 +33,15 @@
                         <td>
                             {{ $project->budget }}&euro;
                         </td>
-                        <td>
-                            <a href="{{ route('admin.projects.edit', $project) }}">
+                        <td class="d-flex">
+                            <a href="{{ route('admin.projects.edit', $project) }}" class="me-3">
                                 <button class='btn btn-success'><i class="fa-solid fa-pen"></i></button>
                             </a>
+                            <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class='btn btn-danger'><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
